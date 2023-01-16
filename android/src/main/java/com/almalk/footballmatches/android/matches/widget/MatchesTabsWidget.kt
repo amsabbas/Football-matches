@@ -50,7 +50,7 @@ fun MatchesTabsWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
                     color = if (matchesViewModel.weekdaySelectedTabIndex.value == i)
                         colorResource(id = AppTheme.colors.white)
                     else
-                        colorResource(id = AppTheme.colors.gray80),
+                        colorResource(id = AppTheme.colors.white60),
                     style = AppTheme.typography.subBody,
                     modifier = Modifier
                         .align(Alignment.Center)

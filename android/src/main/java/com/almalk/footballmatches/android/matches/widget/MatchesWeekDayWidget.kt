@@ -1,5 +1,6 @@
 package com.almalk.footballmatches.android.matches.widget
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement.Absolute.SpaceEvenly
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,10 +12,12 @@ import androidx.compose.ui.Alignment.Companion.Top
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.almalk.footballmatches.android.base.widget.AppTheme
 import com.almalk.footballmatches.android.matches.viewmodel.MatchesViewModel
+import com.almalk.footballmatches.android.R
 
 @Composable
 fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
@@ -29,40 +32,41 @@ fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
                 .padding(horizontal = 32.dp, vertical = 8.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            resource.data.matches.forEach { match ->
+            resource.data.matches.forEachIndexed { index, match ->
+
                 item {
 
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp),
-                        horizontalArrangement = SpaceEvenly,
-                        verticalAlignment = Top
-                    ) {
+                    Column(Modifier.fillMaxWidth()) {
 
-                        match.homeTeam?.let {
-                            MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
-                        }
+                        MatchesDateWidget(
+                            match = match,
+                            previousMatch = if (index > 0) resource.data.matches[index - 1] else null
+                        )
 
-                        Spacer(modifier = Modifier.width(12.dp))
-                        match.score?.let {
-                            if (it.winner != null) {
-                                Text(
-                                    text = it.fullTime?.home.toString() + ":" + it.fullTime?.away.toString(),
-                                    color = colorResource(id = AppTheme.colors.green),
-                                    style = AppTheme.typography.subtitle2.copy(
-                                        fontWeight = FontWeight.Bold
-                                    ),
-                                )
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp),
+                            horizontalArrangement = SpaceEvenly,
+                            verticalAlignment = Top
+                        ) {
+
+                            match.homeTeam?.let {
+                                MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
+                            }
+
+                            Spacer(modifier = Modifier.width(12.dp))
+
+                            MatchesScoreWidget(score = match.score)
+
+                            Spacer(modifier = Modifier.width(12.dp))
+
+                            match.awayTeam?.let {
+                                MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
                             }
                         }
-
-                        Spacer(modifier = Modifier.width(12.dp))
-
-                        match.awayTeam?.let {
-                            MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
-                        }
                     }
+
                 }
             }
         }

@@ -62,7 +62,7 @@ fun BottomItemWidget(
                 },
                 selected = mainViewModel.isTabSelected(currentRoute?.route, it.route),
                 selectedContentColor = colorResource(id = AppTheme.colors.white),
-                unselectedContentColor = colorResource(id = AppTheme.colors.gray80),
+                unselectedContentColor = colorResource(id = AppTheme.colors.white60),
                 onClick = {
                     navController.navigate(it.route) {
                         // Pop up to the start destination of the graph to

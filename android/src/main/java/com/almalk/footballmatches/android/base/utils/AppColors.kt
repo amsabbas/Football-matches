@@ -8,19 +8,22 @@ import com.almalk.footballmatches.android.R
 
 class AppColors(
     white: Int,
+    white60: Int,
     green: Int,
     gray: Int,
-    white60: Int,
+    gray60: Int,
     red: Int,
     orange: Int,
 ) {
     var white by mutableStateOf(white)
         private set
+    var white60 by mutableStateOf(white60)
+        private set
     var green by mutableStateOf(green)
         private set
     var gray by mutableStateOf(gray)
         private set
-    var gray80 by mutableStateOf(white60)
+    var gray60 by mutableStateOf(gray60)
         private set
     var red by mutableStateOf(red)
         private set
@@ -33,6 +36,7 @@ fun lightColors(
     white = R.color.white,
     green = R.color.green,
     gray = R.color.gray,
+    gray60 = R.color.gray_60,
     white60 = R.color.white_60,
     red = R.color.red,
     orange = R.color.orange,
@@ -43,6 +47,7 @@ fun darkColors(
     white = R.color.white,
     green = R.color.green,
     gray = R.color.gray,
+    gray60 = R.color.gray_60,
     white60 = R.color.white_60,
     red = R.color.red,
     orange = R.color.orange,

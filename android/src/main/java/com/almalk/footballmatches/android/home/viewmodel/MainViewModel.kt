@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(
         return if (currentRoute == selectedRoute)
             AppTheme.colors.white
         else
-            AppTheme.colors.gray80
+            AppTheme.colors.white60
     }
 
     fun isTabSelected(currentRoute: String?, selectedRoute: String?): Boolean {
