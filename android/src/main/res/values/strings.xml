@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Football Matches</string>
+    <string name="matches_tab_title">Matches</string>
+    <string name="teams_tab_title">Teams</string>
+    <string name="week_day_title">Weekday</string>
+    <string name="retry">Retry</string>
+    <string name="unknown_error">Unknown error, please try again</string>
+</resources>

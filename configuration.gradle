@@ -1,0 +1,17 @@
+ext {
+
+    developmentConfiguration = [
+            "BASE_URL": "https://api.football-data.org/",
+            "API_TOKEN" : "babe4ab2baed41ce8bc8877061e5fc2b"
+    ]
+
+    qualityConfiguration = [
+            "BASE_URL": "https://api.football-data.org/",
+            "API_TOKEN" : "babe4ab2baed41ce8bc8877061e5fc2b"
+    ]
+
+    productionConfiguration = [
+            "BASE_URL": "https://api.football-data.org/",
+            "API_TOKEN" : "babe4ab2baed41ce8bc8877061e5fc2b"
+    ]
+}
