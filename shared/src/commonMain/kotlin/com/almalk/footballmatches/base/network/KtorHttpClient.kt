@@ -1,7 +1,10 @@
 package com.almalk.footballmatches.base.network
 
 
+import com.almalk.footballmatches.base.utils.AppException
+import com.almalk.footballmatches.base.utils.AppExceptionType
 import com.almalk.footballmatches.base.utils.Constants
+import com.almalk.footballmatches.base.utils.toAppException
 import com.almalk.footballmatches.getLogger
 
 import io.ktor.client.*
@@ -10,8 +13,10 @@ import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.client.plugins.observer.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.utils.io.errors.*
 import kotlinx.serialization.json.Json
 
 class KtorHttpClient {
@@ -51,5 +56,31 @@ class KtorHttpClient {
             header(HttpHeaders.ContentType, ContentType.Application.Json)
             header("X-Auth-Token", Constants.AUTH_TOKEN)
         }
+
+
+        HttpResponseValidator {
+            validateResponse { response: HttpResponse ->
+                val statusCode = response.status.value
+
+                if (statusCode >= 300) {
+                    throw AppException(
+                        exceptionType = if (statusCode == 401)
+                            AppExceptionType.UnAuthorized else AppExceptionType.API,
+                    )
+                }
+            }
+
+            handleResponseExceptionWithRequest { exception, _ ->
+                val result = if (exception is IOException) {
+                    AppException(AppExceptionType.Network, "", "", exception)
+                } else {
+                    exception.toAppException()
+                }
+                throw result
+            }
+
+        }
+
+
     }
 }

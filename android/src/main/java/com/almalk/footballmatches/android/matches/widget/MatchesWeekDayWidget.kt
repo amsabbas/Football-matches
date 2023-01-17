@@ -1,23 +1,16 @@
 package com.almalk.footballmatches.android.matches.widget
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement.Absolute.SpaceEvenly
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Top
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.almalk.footballmatches.android.base.widget.AppTheme
 import com.almalk.footballmatches.android.matches.viewmodel.MatchesViewModel
-import com.almalk.footballmatches.android.R
 
 @Composable
 fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
@@ -57,7 +50,7 @@ fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
 
                             Spacer(modifier = Modifier.width(12.dp))
 
-                            MatchesScoreWidget(score = match.score)
+                            MatchesScoreWidget(score = match.score, match.utcDate)
 
                             Spacer(modifier = Modifier.width(12.dp))
 

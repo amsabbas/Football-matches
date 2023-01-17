@@ -54,7 +54,7 @@ fun MatchesTabsWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
                     style = AppTheme.typography.subBody,
                     modifier = Modifier
                         .align(Alignment.Center)
-                        .padding(8.dp)
+                        .padding(4.dp)
                 )
             }
         }

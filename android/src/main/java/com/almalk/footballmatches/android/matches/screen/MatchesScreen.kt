@@ -7,10 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.almalk.footballmatches.android.R
+import com.almalk.footballmatches.android.base.extension.getErrorMessage
 import com.almalk.footballmatches.android.base.model.ResourceState
 import com.almalk.footballmatches.android.base.widget.ErrorWidget
 import com.almalk.footballmatches.android.base.widget.LoadingWidget
@@ -36,8 +38,7 @@ fun MatchesScreen(matchesViewModel: MatchesViewModel = hiltViewModel()) {
         ResourceState.Error -> {
             ErrorWidget(
                 buttonPositiveTitle = stringResource(id = R.string.retry),
-                message = resource.exception?.message
-                    ?: stringResource(id = R.string.unknown_error),
+                message = resource.exception?.getErrorMessage(LocalContext.current)?.message ?: "",
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxSize(),
@@ -46,7 +47,7 @@ fun MatchesScreen(matchesViewModel: MatchesViewModel = hiltViewModel()) {
         }
         ResourceState.Success -> {
             Column {
-                MatchesHeaderWidget(resource.data?.competition)
+                MatchesHeaderWidget(resource.data?.competition, resource.data?.filters?.season)
                 MatchesTabsWidget()
                 MatchesWeekDayWidget()
             }
