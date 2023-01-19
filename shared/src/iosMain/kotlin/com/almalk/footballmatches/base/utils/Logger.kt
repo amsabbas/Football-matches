@@ -1,4 +1,4 @@
-package com.almalk.footballmatches
+package com.almalk.footballmatches.base.utils
 
 import platform.Foundation.NSLog
 

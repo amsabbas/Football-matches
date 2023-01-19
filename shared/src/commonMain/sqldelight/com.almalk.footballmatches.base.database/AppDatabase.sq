@@ -1,0 +1,23 @@
+CREATE TABLE Team (
+    id    INTEGER,
+    name     TEXT    ,
+    shortName        TEXT   ,
+    tla         TEXT,
+    imageURL TEXT
+);
+
+
+insertTeam:
+INSERT INTO Team(id, name, shortName, tla, imageURL)
+VALUES(?, ?, ?, ?, ?);
+
+removeAllTeams:
+DELETE FROM Team;
+
+selectTeamById:
+SELECT * FROM Team
+WHERE id = ?;
+
+selectAllTeams:
+SELECT Team.*
+FROM Team;

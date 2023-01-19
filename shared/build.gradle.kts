@@ -2,11 +2,11 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlinx-serialization")
-
+    id("com.squareup.sqldelight")
 }
 
-val coroutinesVersion = "1.6.4"
-val ktorVersion = "2.2.1"
+
+
 
 kotlin {
     android()
@@ -24,11 +24,12 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-                implementation("io.ktor:ktor-client-core:$ktorVersion")
-                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-                implementation("io.ktor:ktor-client-logging:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("io.ktor:ktor-client-core:2.2.1")
+                implementation("io.ktor:ktor-client-content-negotiation:2.2.1")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.1")
+                implementation("io.ktor:ktor-client-logging:2.2.1")
+                implementation("com.squareup.sqldelight:runtime:1.5.4")
 
             }
         }
@@ -39,7 +40,9 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:$ktorVersion")
+                implementation("io.ktor:ktor-client-android:2.2.1")
+                implementation("com.squareup.sqldelight:android-driver:1.5.4")
+
             }
         }
         val androidTest by getting
@@ -53,7 +56,8 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                implementation("io.ktor:ktor-client-darwin:$ktorVersion")
+                implementation("io.ktor:ktor-client-darwin:2.2.1")
+                implementation("com.squareup.sqldelight:native-driver:1.5.4")
             }
         }
         val iosX64Test by getting
@@ -66,6 +70,8 @@ kotlin {
             iosSimulatorArm64Test.dependsOn(this)
         }
     }
+
+
 }
 
 android {
@@ -77,3 +83,8 @@ android {
     }
 }
 
+sqldelight{
+    database("AppDatabase") {
+        packageName = "com.almalk.footballmatches.base.database"
+    }
+}
