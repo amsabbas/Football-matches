@@ -4,8 +4,8 @@ package com.almalk.footballmatches.android.matches.di
 import com.almalk.footballmatches.android.matches.viewmodel.MatchesViewModel
 import com.almalk.footballmatches.base.network.KtorHttpClient
 import com.almalk.footballmatches.matches.model.MatchesMemoryCache
-import com.almalk.footballmatches.matches.network.MatchesRemoteDataSource
-import com.almalk.footballmatches.matches.network.MatchesRepository
+import com.almalk.footballmatches.matches.repository.MatchesRemoteDataSource
+import com.almalk.footballmatches.matches.repository.MatchesRepository
 import com.almalk.footballmatches.matches.usecase.MatchesUseCase
 import dagger.Module
 import dagger.Provides

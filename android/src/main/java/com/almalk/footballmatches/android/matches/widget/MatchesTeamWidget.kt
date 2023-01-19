@@ -18,10 +18,17 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.almalk.footballmatches.android.R
 import com.almalk.footballmatches.android.base.widget.AppTheme
+import com.almalk.footballmatches.matches.model.Team
 
 @Composable
-fun MatchesTeamWidget(teamImageURL: String?, teamName: String?) {
-    Row(verticalAlignment = Alignment.Top) {
+fun MatchesTeamWidget(team: Team) {
+
+    val teamImageURL = team.crest
+    val teamName = team.name
+
+    Row(
+        verticalAlignment = Alignment.Top
+    ) {
 
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)

@@ -45,7 +45,7 @@ fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
                         ) {
 
                             match.homeTeam?.let {
-                                MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
+                                MatchesTeamWidget(it)
                             }
 
                             Spacer(modifier = Modifier.width(12.dp))
@@ -55,7 +55,7 @@ fun MatchesWeekDayWidget(matchesViewModel: MatchesViewModel = hiltViewModel()) {
                             Spacer(modifier = Modifier.width(12.dp))
 
                             match.awayTeam?.let {
-                                MatchesTeamWidget(teamImageURL = it.crest, teamName = it.name)
+                                MatchesTeamWidget(it)
                             }
                         }
                     }

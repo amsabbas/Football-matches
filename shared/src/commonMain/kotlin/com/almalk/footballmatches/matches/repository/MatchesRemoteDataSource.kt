@@ -1,4 +1,4 @@
-package com.almalk.footballmatches.matches.network
+package com.almalk.footballmatches.matches.repository
 
 import com.almalk.footballmatches.base.network.KtorHttpClient
 import com.almalk.footballmatches.base.utils.Constants

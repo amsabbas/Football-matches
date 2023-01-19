@@ -1,4 +1,4 @@
-package com.almalk.footballmatches.matches.network
+package com.almalk.footballmatches.matches.repository
 
 import com.almalk.footballmatches.matches.model.Matches
 import kotlinx.coroutines.flow.Flow

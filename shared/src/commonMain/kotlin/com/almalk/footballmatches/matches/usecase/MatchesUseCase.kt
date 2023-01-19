@@ -1,7 +1,7 @@
 package com.almalk.footballmatches.matches.usecase
 
 import com.almalk.footballmatches.matches.model.Matches
-import com.almalk.footballmatches.matches.network.MatchesRepository
+import com.almalk.footballmatches.matches.repository.MatchesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
