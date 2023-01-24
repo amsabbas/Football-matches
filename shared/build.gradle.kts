@@ -24,11 +24,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("io.ktor:ktor-client-core:2.2.1")
-                implementation("io.ktor:ktor-client-content-negotiation:2.2.1")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.1")
-                implementation("io.ktor:ktor-client-logging:2.2.1")
+                implementation("io.ktor:ktor-client-core:2.2.2")
+                implementation("io.ktor:ktor-client-content-negotiation:2.2.2")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.2")
+                implementation("io.ktor:ktor-client-logging:2.2.2")
                 implementation("com.squareup.sqldelight:runtime:1.5.4")
 
             }
@@ -40,7 +39,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.2.1")
+                implementation("io.ktor:ktor-client-android:2.2.2")
                 implementation("com.squareup.sqldelight:android-driver:1.5.4")
 
             }
@@ -56,7 +55,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
 
             dependencies {
-                implementation("io.ktor:ktor-client-darwin:2.2.1")
+                implementation("io.ktor:ktor-client-darwin:2.2.2")
                 implementation("com.squareup.sqldelight:native-driver:1.5.4")
             }
         }
