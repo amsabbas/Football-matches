@@ -1,6 +1,6 @@
 # Football-matches
 
 - Kotlin multiplatform project
-- Compose
+- Compose & SwiftUI
 - Flow
 - Ktor
