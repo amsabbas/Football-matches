@@ -4,3 +4,4 @@
 - Compose & SwiftUI
 - Flow
 - Ktor
+- SQLDelight
